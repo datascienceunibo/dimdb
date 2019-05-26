@@ -7,31 +7,31 @@ Setup
 -----
 
 1. Scaricare il progetto sul proprio PC
-  - eseguire in un terminale `git clone https://github.com/datascienceunibo/dimdb`
-  - _oppure_ [scaricare l'archivio ZIP del repository](#) ed estrarne i file in una directory vuota
+   - eseguire in un terminale `git clone https://github.com/datascienceunibo/dimdb`
+   - _oppure_ [scaricare l'archivio ZIP del repository](https://github.com/datascienceunibo/dimdb/archive/master.zip) ed estrarre da esso la directory del progetto
 
 2. Aprire un terminale e impostare come directory corrente (`cd`) quella del progetto, eseguire in esso i comandi dei punti seguenti
 
 3. Creare un nuovo ambiente virtuale
-  - `python -m venv venv` (sostituire `python` con `python3` su Mac OS o Linux)
+   - `python -m venv venv` (sostituire `python` con `python3` su Mac OS o Linux)
 
 4. Attivare l'ambiente virtuale
-  - `venv\bin\activate.bat` (su Windows)
-  - `source venv/bin/activate` (su Mac OS e Linux)
+   - `venv\bin\activate.bat` (su Windows)
+   - `source venv/bin/activate` (su Mac OS e Linux)
 
 5. Installare le librerie necessarie, elencate nel file `requirements.txt`
-  - `pip install -r requirements.txt`
+   - `pip install -r requirements.txt`
 
 6. Impostare le variabili d'ambiente necessarie
-  - su Windows usare `set` come indicato sotto, su Mac OS o Linux sostituire `set` con `export`
-  - `set FLASK_APP=dimdb`
-  - `set FLASK_DEBUG=true`
+   - su Windows usare `set` come indicato sotto, su Mac OS o Linux sostituire `set` con `export`
+   - `set FLASK_APP=dimdb`
+   - `set FLASK_DEBUG=true`
 
 7. Creare una directory `instance` dove sono salvati i dati dell'applicazione
-  - `mkdir instance`
+   - `mkdir instance`
 
 8. Avviare il webserver di Flask
-  - `python -m flask run`
+   - `python -m flask run`
 
 9. Aprire l'URL http://127.0.0.1:5000/ nel browser
 

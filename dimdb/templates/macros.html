@@ -1,0 +1,22 @@
+{% macro search_form(fill="") %}
+<form action="{{ url_for("movie_search") }}" method="GET">
+  <input type="text" name="q" value="{{ fill|e }}">
+  <input type="submit" value="Search">
+</form>
+{% endmacro %}
+
+{% macro stars(stars) %}
+<span class="stars-yes">{% for n in range(stars) %}{% if not loop.first %}&nbsp;{% endif %}&#9733;{% endfor %}</span>{% for n in range(5-stars) %}&nbsp;&#9734;{% endfor %}
+{% endmacro %}
+
+{% macro movie_image(movie) %}
+<img src="{{ movie.image_url }}" alt="{{ movie.name }}" style="width: 100%;">
+{% endmacro %}
+
+{% macro rating(probs) %}
+{% set level = (probs.pos*4.999)|int %}
+<div class="rating rating-l{{ level+1 }}">
+  <div class="rating-score">{{ (100*probs.pos)|round(1) }}%</div>
+  <div class="rating-text">{{ ["Horrible", "Poor", "Average", "Good", "Excellent"][level] }}</div>
+</div>
+{% endmacro %}

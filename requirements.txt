@@ -1,0 +1,6 @@
+numpy==1.11.3
+pandas==0.19.2
+scipy==0.18.1
+scikit-learn==0.18.1
+flask==0.12
+tweepy==3.7.0

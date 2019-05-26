@@ -1,0 +1,24 @@
+{% extends "master.html" %}
+
+{% from "macros.html" import rating %}
+
+{% block title %}Review classifier{% endblock %}
+
+{% block main %}
+<h1>Review classifier test</h1>
+<div class="row">
+  <div class="col-narrow">
+    {% if probabilities is not none %}
+      {{ rating(probabilities) }}
+    {% else %}
+      <p>Enter text to be evaluated in the box</p>
+    {% endif %}
+  </div>
+  <div class="col-wide">
+    <form action="{{ url_for("review_classifier_test") }}" method="GET">
+      <textarea name="text" rows="10" cols="60">{{ text|e }}</textarea><br>
+      <input type="submit" value="Evaluate">
+    </form>
+  </div>
+</div>
+{% endblock %}

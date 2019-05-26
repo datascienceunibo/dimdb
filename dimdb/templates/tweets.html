@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% from "macros.html" import rating %}
+
+{% block title %}{{ movie.name }}{% endblock %}
+
+{% block main %}
+  <p><a href="{{ url_for("movie_details", mid=movie.id) }}">&lt; Movie page</a></p>
+  <h1>Live tweets for "{{ movie.name }}"</h1>
+  {% for item in tweets %}
+  <div class="row">
+    <div class="col-narrow">
+      {{ rating(item.probs) }}
+    </div>
+    <div class="col-wide">
+      <p class="twitter-user">{{ item.tweet.user.name }}</p>
+      <p class="twitter-text">{{ item.tweet.text }}
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

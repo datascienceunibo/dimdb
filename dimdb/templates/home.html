@@ -1,0 +1,22 @@
+{% extends "master.html" %}
+{% from "macros.html" import movie_image, search_form %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+<h1>Welcome to DIMDb!</h1>
+<h2>Search for movies</h2>
+{{ search_form() }}
+<h2>Some random picks</h2>
+<div class="row">
+  {% for movie in highlights %}
+    <div class="highlights-entry-box">
+      <div class="highlights-entry">
+        <a href="{{ url_for("movie_details", mid=movie.id) }}">
+          {{ movie_image(movie) }}<br>{{ movie.name }}
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

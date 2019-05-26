@@ -1,0 +1,12 @@
+{% extends "master.html" %}
+{% from "macros.html" import search_form %}
+
+{% block title %}Search results{% endblock %}
+
+{% block main %}
+<h1>Search results</h1>
+{{ search_form(query) }}
+{% for movie in results %}
+<p><a href="{{ url_for("movie_details", mid=movie.id) }}">{{ movie.name }}</a></p>
+{% endfor %}
+{% endblock %}

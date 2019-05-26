@@ -1,0 +1,10 @@
+{% extends "master.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+<div class="error">
+  <h2>Data directory not existing!</h2>
+  <p>Data directory is set to "<code>{{ datadir }}</code>": create it or change the value of the <code>DATA_DIR</code> variable.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% from "macros.html" import stars %}
+
+{% block title %}User {{ user.name }}{% endblock %}
+
+{% block main %}
+  <h1>Reviews of user {{ user.name }}</h1>
+  {% for review in reviews %}
+  <div class="row">
+    <div class="col-narrow">
+      <p><a href="{{ url_for("movie_details", mid=review.movie_id) }}">{{ review.movie_name }}</a></p>
+      <p class="stars">{{ stars(review.stars) }}</p>
+    </div>
+    <div class="col-wide">
+      <p class="review-summary">{{ review.summary }}</p>
+      <p class="review-text">{{ review.review }}</p>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

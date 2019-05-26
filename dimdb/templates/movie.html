@@ -1,0 +1,31 @@
+{% extends "master.html" %}
+{% from "macros.html" import movie_image, stars %}
+
+{% block title %}{{ movie.name }}{% endblock %}
+
+{% block main %}
+  <div class="row">
+    <div class="col-wide">
+      <h1>{{ movie.name }}</h1>
+      <p>{{ movie.description }}</p>
+      <p><a href="{{ url_for("movie_tweets", mid=movie.id) }}">Show tweets about this movie</a></p>
+    </div>
+    <div class="col-narrow">
+      {{ movie_image(movie) }}
+    </div>
+  </div>
+  <h2>User reviews</h2>
+  <p>*MEDIA STELLE* mean stars on *NUM. RECENSIONI* reviews</p>
+  {# *RIPETERE DA QUI...* #}
+  <div class="row">
+    <div class="col-narrow">
+      <p><a href="./LINK_A_PAGINA_UTENTE">*NOME UTENTE*</a></p>
+      <p class="stars">{{ stars(3) }}</p>
+    </div>
+    <div class="col-wide">
+      <p class="review-summary">*TITOLO (SUMMARY)*</p>
+      <p class="review-text">*TESTO (REVIEW)*</p>
+    </div>
+  </div>
+  {# *...FINO A QUI PER OGNI RECENSIONE* #}
+{% endblock %}

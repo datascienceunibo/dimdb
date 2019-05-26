@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+<div class="error">
+  <h2>Database file not found!</h2>
+  <p>
+    File <code>{{ dbfile }}</code> was not found in directory <code>{{ datadir }}</code>!
+    Click the button below to directly download it to the directory.
+    If that doesn't work, <a href="{{ dburl }}">manually download the file</a> and save it in <code>{{ datadir }}</code>.
+  </p>
+  <form action="{{ url_for("download_db") }}" method="POST">
+    <input type="submit" value="Download">
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "master.html" %}
+
+{% block title %}Admin controls{% endblock %}
+
+{% block main %}
+<h2>Movies search</h2>
+<form action="{{ url_for("reindex_movies") }}" method="POST">
+  <input type="submit" value="Build vector space">
+</form>
+<h2>Reviews classification</h2>
+<form action="{{ url_for("retrain_review_classifier") }}" method="POST">
+  <input type="submit" value="Train reviews classifier">
+</form>
+<p><a href="{{ url_for("review_classifier_test") }}">Test the classifier</a></p>
+{% endblock %}

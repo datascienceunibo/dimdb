@@ -28,10 +28,11 @@ def movie_details(mid):
     # reperisci le recensioni in forma di DataFrame pandas
     # (il numero di stelle è nella colonna "stars")
     reviews = db.get_movie_reviews(mid)
+    avg_stars = reviews["stars"].mean()
     # (to_records converte il DataFrame in una lista di oggetti
     # compatibili con Jinja2)
     return render_template("movie.html", movie=movie,
-            reviews=reviews.to_records())
+            reviews=reviews.to_records(), avg_stars=avg_stars)
 
 # scheda utente (simile a scheda film)
 @app.route("/user/<int:uid>")

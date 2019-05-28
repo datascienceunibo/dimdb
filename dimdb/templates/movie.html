@@ -15,17 +15,19 @@
     </div>
   </div>
   <h2>User reviews</h2>
-  <p>*MEDIA STELLE* mean stars on *NUM. RECENSIONI* reviews</p>
+  <p>{{ avg_stars|round(1) }} mean stars on {{ reviews|length }} reviews</p>
   {# *RIPETERE DA QUI...* #}
+  {% for review in reviews %}
   <div class="row">
     <div class="col-narrow">
-      <p><a href="./LINK_A_PAGINA_UTENTE">*NOME UTENTE*</a></p>
-      <p class="stars">{{ stars(3) }}</p>
+      <p><a href="{{ url_for("user_details", uid=review.user_id) }}">{{ review.user_name }}</a></p>
+      <p class="stars">{{ stars(review.stars) }}</p>
     </div>
     <div class="col-wide">
-      <p class="review-summary">*TITOLO (SUMMARY)*</p>
-      <p class="review-text">*TESTO (REVIEW)*</p>
+      <p class="review-summary">{{ review.summary }}</p>
+      <p class="review-text">{{ review.review }}</p>
     </div>
   </div>
+  {% endfor %}
   {# *...FINO A QUI PER OGNI RECENSIONE* #}
 {% endblock %}

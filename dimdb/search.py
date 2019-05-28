@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 from flask import current_app, flash
 # aggiungere quì import necessari in build_index
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 from . import db
 
@@ -12,9 +13,8 @@ def build_index():
     # reperisci dati di tutti i film
     movies = db.get_all_movies()
     # costruisci indice (spazio vettoriale e vettori dei film)
-    raise Exception("INSERIRE ISTRUZIONI MANCANTI QUI")
-    # vect = ...
-    # dtm = ...
+    vect = TfidfVectorizer()
+    dtm = vect.fit_transform(movies["name"])
     # salva indice su file
     with current_app.open_instance_resource(INDEX_FILENAME, "wb") as f:
         pickle.dump((movies.id, vect, dtm), f)

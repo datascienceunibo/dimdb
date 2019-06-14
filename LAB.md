@@ -13,10 +13,11 @@ Setup
 2. Aprire un terminale e impostare come directory corrente (`cd`) quella del progetto, eseguire in esso i comandi dei punti seguenti
 
 3. Creare un nuovo ambiente virtuale
-   - `python -m venv venv` (sostituire `python` con `python3` su Mac OS o Linux)
+   - `python -m venv venv`
+   - `python` deve lanciare la versione 3.x di Python, verificare con `python --version`, se la versione risulta 2.x provare con `python3` al posto di `python`
 
 4. Attivare l'ambiente virtuale
-   - `venv\bin\activate.bat` (su Windows)
+   - `venv\Scripts\activate.bat` (su Windows)
    - `source venv/bin/activate` (su Mac OS e Linux)
 
 5. Installare le librerie necessarie, elencate nel file `requirements.txt`
